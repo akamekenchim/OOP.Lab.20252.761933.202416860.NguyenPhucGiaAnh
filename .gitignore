@@ -1,0 +1,15 @@
+# Chặn tất cả file .class
+*.class
+
+# Chặn thư mục chứa file build (của Maven hoặc Gradle)
+target/
+build/
+
+# Chặn các file cấu hình của IDE (VS Code, IntelliJ, Eclipse)
+.settings/
+.temp/
+.classpath
+.project
+.idea/
+*.iml
+*.log
