@@ -7,9 +7,9 @@ public class Tong2So {
         double a = akame.nextDouble();
         System.out.printf("Nhap so thu hai: ");
         double b = akame.nextDouble();
-        System.out.printf("Tong cua hai so la: %.2f", (a + b));
-        System.out.printf("Hieu cua hai so la: %.2f", (a - b));
-        System.out.printf("Tich cua hai so la: %.2f", (a * b));
+        System.out.printf("Tong cua hai so la: %.2f\n", (a + b));
+        System.out.printf("Hieu cua hai so la: %.2f\n", (a - b));
+        System.out.printf("Tich cua hai so la: %.2f\n", (a * b));
         if(b != 0) {
             System.out.printf("Thuong cua hai so la: %.2f", (a / b));
         }  
