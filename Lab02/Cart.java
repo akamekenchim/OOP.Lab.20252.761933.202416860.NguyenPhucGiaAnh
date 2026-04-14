@@ -6,13 +6,13 @@ public class Cart {
     public int qtyOrdered = 0;
     public void addDigitalVideoDisc(DigitalVideoDisc d){
         int c = qtyOrdered;
-        if(c >= 20){
+        if(c >= MAX_NUMBER_ORDERED){
             System.out.println("Da order qua nhieu");
             return;
         }
         itemsOrdered[c] = d;
         qtyOrdered++;
-        if(c==19 || c==20) System.out.println("The cart is almost full");
+        if(c==MAX_NUMBER_ORDERED-1 || c==MAX_NUMBER_ORDERED) System.out.println("The cart is almost full");
         else System.out.println("The disc has been added");
     }
     public double totalCost(){
