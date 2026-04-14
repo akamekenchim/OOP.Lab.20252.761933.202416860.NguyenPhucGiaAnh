@@ -70,9 +70,14 @@ public class Cart {
         qtyOrdered -= deleted;
     }
     public void printAll(){
+        System.out.println("*******************************CART******************************");
+        System.out.println("Ordered items: ");
         for(int i =0; i<qtyOrdered; i++){
-            System.out.println(itemsOrdered[i].getTitle());
+            DigitalVideoDisc d = itemsOrdered[i];
+            System.out.printf("%d. DVD - %s - %s - %s - %d : %.2f\n",i+1, d.getTitle(), d.getCategory(), d.getDirector(), d.getLength(), d.getCost());
         }
+        System.out.printf("Total cost: %.2f\n", totalCost());
+        System.out.println("*****************************************************************");
     }
 }
 

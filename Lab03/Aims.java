@@ -16,7 +16,7 @@ public class Aims {
     anOrder.addDigitalVideoDisc(dvd2);
 
     DigitalVideoDisc dvd3 = new DigitalVideoDisc("Asagao to Kase-san",
-            "Yuri", 18.99f);
+            "Yuri", "Murasaki", 88,  18.99f);
     
     
     anOrder.addDigitalVideoDisc(dvd3, dvd1);
