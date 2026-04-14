@@ -24,6 +24,15 @@ public class Cart {
             itemsOrdered[qtyOrdered++] = dArray[i];
         }
     }
+    /*public void addDigitalVideoDisc(DigitalVideoDisc [] dArray){
+        if(qtyOrdered + dArray.length > MAX_NUMBER_ORDERED){
+            System.out.println("Da order qua nhieu");
+            return;
+        }
+        for(int i = 0; i<dArray.length; i++){
+            itemsOrdered[qtyOrdered++] = dArray[i];
+        }
+    }*/
     public void addDigitalVideoDisc(DigitalVideoDisc d1, DigitalVideoDisc d2){
         int c = qtyOrdered;
         if(c+1 >= MAX_NUMBER_ORDERED){
