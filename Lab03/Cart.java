@@ -83,10 +83,34 @@ public class Cart {
         System.out.println("Ordered items: ");
         for(int i =0; i<qtyOrdered; i++){
             DigitalVideoDisc d = itemsOrdered[i];
-            System.out.printf("%d. DVD - %s - %s - %s - %d : %.2f\n",i+1, d.getTitle(), d.getCategory(), d.getDirector(), d.getLength(), d.getCost());
+            System.out.printf("ID: %d. DVD - %s - %s - %s - %d : %.2f\n",d.getId(), d.getTitle(), d.getCategory(), d.getDirector(), d.getLength(), d.getCost());
         }
         System.out.printf("Total cost: %.2f\n", totalCost());
         System.out.println("*****************************************************************");
+    }
+    public void findDVD(int id){
+        boolean found = false;
+        for(int i = 0; i<qtyOrdered; i++){
+            DigitalVideoDisc d = itemsOrdered[i];
+            if(itemsOrdered[i].getId() == id){
+                System.out.printf("%d. DVD - %s - %s - %s - %d : %.2f\n",d.getId(), d.getTitle(), d.getCategory(), d.getDirector(), d.getLength(), d.getCost());
+                found = true;
+            }
+        }
+        if(!found) System.out.println("Not found");
+        //return found;
+    }
+    public void findDVD(String title){
+        boolean found = false;
+        for(int i = 0; i<qtyOrdered; i++){
+            DigitalVideoDisc d = itemsOrdered[i];
+            if(itemsOrdered[i].getTitle().equals(title)){
+                System.out.printf("%d. DVD - %s - %s - %s - %d : %.2f\n",d.getId(), d.getTitle(), d.getCategory(), d.getDirector(), d.getLength(), d.getCost());
+                found = true;
+            }
+        }
+        if(!found) System.out.println("Not found");
+        //return found;
     }
 }
 
