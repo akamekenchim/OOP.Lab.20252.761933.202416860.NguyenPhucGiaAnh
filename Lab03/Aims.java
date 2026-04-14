@@ -1,0 +1,31 @@
+package Lab03;
+
+public class Aims {
+    public static void main(String[] args) {
+
+    //Create a new cart
+    Cart anOrder = new Cart();
+
+    //Create new dvd objects and add them to the cart
+    DigitalVideoDisc dvd1 = new DigitalVideoDisc("5cm/s",
+            "Anime", "Makoto Shinkai", 97, 19.95f);
+    anOrder.addDigitalVideoDisc(dvd1);
+
+    DigitalVideoDisc dvd2 = new DigitalVideoDisc("TenSura",
+            "Science Fiction", "George Lucas", 87, 24.95f);
+    anOrder.addDigitalVideoDisc(dvd2);
+
+    DigitalVideoDisc dvd3 = new DigitalVideoDisc("Asagao to Kase-san",
+            "Yuri", 18.99f);
+    
+
+    //print total cost of the items in the cart
+    System.out.println("Total Cost is: ");
+    System.out.println(anOrder.totalCost());
+
+    anOrder.removeDigitalVideoDisc(dvd3);
+
+    anOrder.printAll();
+//
+}
+}
