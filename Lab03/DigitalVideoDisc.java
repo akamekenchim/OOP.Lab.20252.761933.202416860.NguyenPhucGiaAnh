@@ -7,6 +7,7 @@ public class DigitalVideoDisc{
     private float cost;
     private static int nbDigitalVideoDiscs = 0;
     private int id;
+    
     public DigitalVideoDisc(String title, String category, float cost) {
         this.title = title;
         this.category = category;
@@ -67,5 +68,11 @@ public class DigitalVideoDisc{
     }
     public void setCost(float cost) {
         this.cost = cost;
+    }
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
     }
 }
