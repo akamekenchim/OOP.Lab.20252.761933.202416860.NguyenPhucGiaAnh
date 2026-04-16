@@ -1,4 +1,4 @@
-package Lab01;
+package Lab03.OtherProjects.Lab01;
 import java.util.*;
 public class Add_Matrix {
     public static void main(String[] args) {
