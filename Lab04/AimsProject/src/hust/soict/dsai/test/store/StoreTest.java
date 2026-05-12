@@ -1,6 +1,6 @@
 package Lab04.AimsProject.src.hust.soict.dsai.test.store;
 
-import Lab04.AimsProject.src.hust.soict.dsai.aims.disc.DigitalVideoDisc;
+import Lab04.AimsProject.src.hust.soict.dsai.aims.media.DigitalVideoDisc;
 import Lab04.AimsProject.src.hust.soict.dsai.aims.store.Store;
 
 public class StoreTest {

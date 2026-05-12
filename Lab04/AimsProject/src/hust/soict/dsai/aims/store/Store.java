@@ -1,6 +1,6 @@
 package Lab04.AimsProject.src.hust.soict.dsai.aims.store;
 
-import Lab04.AimsProject.src.hust.soict.dsai.aims.disc.DigitalVideoDisc;
+import Lab04.AimsProject.src.hust.soict.dsai.aims.media.DigitalVideoDisc;
 
 public class Store {
     private static final int MAX_NUMBER_ITEMS = 40;
