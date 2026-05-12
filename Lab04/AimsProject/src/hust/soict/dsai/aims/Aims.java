@@ -50,7 +50,7 @@ public class Aims {
     public static void storeMenu() {
         System.out.println("\nOptions: ");
         System.out.println("--------------------------------");
-        System.out.println("1. See a media’s details");
+        System.out.println("1. See a media's details");
         System.out.println("2. Add a media to cart");
         System.out.println("3. Play a media");
         System.out.println("4. See current cart");
