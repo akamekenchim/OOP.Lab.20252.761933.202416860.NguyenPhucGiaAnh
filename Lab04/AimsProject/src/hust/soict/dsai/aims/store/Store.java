@@ -21,7 +21,15 @@ public class Store {
             System.out.println("The store is almost full");
         }
     }
-
+    // Tìm kiếm Media theo tên (trả về đối tượng)
+    public Media searchByTitle(String title) {
+        for (Media m : itemsInStore) {
+            if (m.getTitle().equalsIgnoreCase(title)) {
+                return m;
+            }
+        }
+        return null;
+    }
     public void removeMediabyTitle(String title){
         boolean found = false;
         for(Media m : itemsInStore){
@@ -41,7 +49,7 @@ public class Store {
         System.out.println("*******************************STIORE******************************");
         System.out.println("Ordered items: ");
         for(Media d : itemsInStore){
-            System.out.printf("ID: %d. Media - %s - %s - %s - %d : %.2f\n",d.getId(), d.getTitle(), d.getCategory(),d.getCost());
+            System.out.println(d.toString());
         }
         System.out.println("*******************************************************************");
     }

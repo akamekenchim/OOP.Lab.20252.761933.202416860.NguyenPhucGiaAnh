@@ -1,6 +1,6 @@
 package Lab04.AimsProject.src.hust.soict.dsai.aims.media;
 
-public class Disc extends Media {
+public class Disc extends Media implements Comparable<Media> {
     private int length;
     private String director;
     public Disc(String title, String category, String director, float cost) {
@@ -34,5 +34,9 @@ public class Disc extends Media {
     }
     public void setDirector(String director) {
         this.director = director;
+    }
+    @Override
+    public int compareTo(Media other) {
+        return this.getTitle().compareTo(other.getTitle());
     }
 }

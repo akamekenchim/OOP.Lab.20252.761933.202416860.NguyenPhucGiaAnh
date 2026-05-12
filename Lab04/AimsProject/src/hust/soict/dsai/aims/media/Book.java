@@ -3,7 +3,7 @@ package Lab04.AimsProject.src.hust.soict.dsai.aims.media;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Book extends Media {
+public class Book extends Media{
     private List<String> authors = new ArrayList<>();
 
     public Book(int id, String title, String category, float cost) {
@@ -29,4 +29,10 @@ public class Book extends Media {
             System.out.println("Da xoa tac gia: " + authName);
         }
     }
+    @Override
+    public int compareTo(Media other) {
+        // Ví dụ: So sánh theo tiêu đề (Title)
+        return this.getTitle().compareTo(other.getTitle());
+    }
+
 }
