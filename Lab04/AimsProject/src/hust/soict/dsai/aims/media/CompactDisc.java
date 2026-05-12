@@ -1,7 +1,7 @@
 package Lab04.AimsProject.src.hust.soict.dsai.aims.media;
 import java.util.ArrayList;
 import java.util.List;
-public class CompactDisc extends Disc {
+public class CompactDisc extends Disc implements Playable{
     private String artist;
     private List<Track> tracks = new ArrayList<Track>();
     public CompactDisc(String title, String category, String director, float cost) {
@@ -44,6 +44,16 @@ public class CompactDisc extends Disc {
         for(Track t : tracks){
             sum += t.getLength();
         }
+        this.setLength(sum);
         return sum;
+    }
+    @Override
+    public void play(){
+        System.out.println("Playing CD: " + this.getTitle());
+        System.out.println("CD length: " + this.getLength());
+        for(Track t : tracks){
+            t.play();
+        }
+        System.out.println("End of CD: "+ this.getTitle());
     }
 }

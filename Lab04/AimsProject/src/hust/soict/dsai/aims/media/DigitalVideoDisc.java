@@ -1,5 +1,5 @@
 package Lab04.AimsProject.src.hust.soict.dsai.aims.media;
-public class DigitalVideoDisc extends Disc {
+public class DigitalVideoDisc extends Disc implements Playable {
     private static int nbDigitalVideoDiscs = 0;
     public DigitalVideoDisc(String title, String category, String director, float cost) {
         super(title, category, director, cost);
@@ -21,4 +21,10 @@ public class DigitalVideoDisc extends Disc {
         nbDigitalVideoDiscs++;
         this.setId(nbDigitalVideoDiscs);
     }
+    @Override
+    public void play() {
+        System.out.println("Playing DVD: " + this.getTitle());
+        System.out.println("DVD length: " + this.getLength());
+    }
+
 }
