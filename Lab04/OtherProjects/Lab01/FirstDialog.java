@@ -1,4 +1,4 @@
-package Lab04.OtherProjects.Lab01;
+package Lab01;
 import javax.swing.*;
 public class FirstDialog {
     public static void main(String[] args) {

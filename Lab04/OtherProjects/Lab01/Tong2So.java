@@ -1,5 +1,5 @@
-package Lab04.OtherProjects.Lab01;
-import java.util.*;
+package Lab01;
+import java.util.*;;
 public class Tong2So {
     public static void main(String[] args) {
         Scanner akame = new Scanner(System.in);

@@ -1,16 +1,29 @@
-Question:
-Q: Is JAVA a Pass by Value or a Pass by Reference programming language?
+1. Class nào nên implement interface Comparable?
 
-Ans: Java là ngôn ngữ lập trình truyền tham trị, có nghĩa là khi truyền tham số vào 1 hàm, hàm đó tạo
-bản sao của những tham số đó và làm việc trên đó, ko ảnh hưởng đến các biến gốc ngoài hàm.
+    Trả lời: Class Media (class cha).
+    Lý do: Giỏ hàng đang quản lý một danh sách các đối tượng <Media>. Việc để class cha implement Comparable<Media> sẽ đảm bảo rằng bất kỳ loại media nào 
+    (Book, CD, DVD) khi thêm vào danh sách đều có sẵn một quy tắc so sánh - 
+    từ đó giúp hàm Collections.sort() hoạt động trơn tru.
 
-Q: After the call of swap(jungleDVD, cinderellaDVD) why does the title of these two
-objects still remain?
+2. Triển khai phương thức compareTo() như thế nào để phản ánh thứ tự mong muốn?
 
-Ans: Vì khi đó, việc swap chỉ tạo ra 2 bản sao của jungleDVD và cinderellaDVD rồi làm việc trên đó.
-Không ảnh hưởng đến các object gốc.
+    Trả lời: Cần phải quyết định chọn một quy tắc làm mặc định, ví dụ: So sánh 2 media bằng Title
+        Đầu tiên, dùng compareTo của String để so sánh hai Title.
+        Nếu Title khác nhau, trả về kết quả đó luôn.
+        Nếu Title giống hệt nhau (kết quả so sánh bằng 0), tiếp tục dùng Double.compare để so sánh Cost.
 
-Q: After the call of changeTitle(jungleDVD, cinderellaDVD.getTitle()) why is
-the title of the JungleDVD changed?
+3. Có thể có 2 quy tắc sắp xếp (Title -> Cost VÀ Cost -> Title) nếu dùng cách Comparable không?
+    Không, vì mỗi class chỉ có thể override phương thức compareTo() một lần duy nhất, 
+    nghĩa là nó chỉ định nghĩa được một cách sắp xếp mặc định. Nếu bài toán yêu cầu
+    người dùng có thể tự do chọn nhiều tiêu chí sắp xếp khác nhau lúc runtime, bắt buộc phải sử dụng Comparator.
 
-Ans: Vì lúc đó hàm setTitle được gọi, trỏ thẳng tới địa chỉ của object gốc.
+4. Nếu DVD có quy tắc xếp riêng (Title -> giảm dần Length -> Cost) thì sửa code thế nào?
+    Trả lời: Override (ghi đè) phương thức compareTo ngay bên trong class con DigitalVideoDisc.
+    Cách xử lý logic bên trong:
+
+        Trong hàm compareTo(Media other) của class DigitalVideoDisc, trước tiên hãy kiểm tra xem other có đúng là một đĩa DVD không (instanceof).
+
+        Nếu đúng là DVD: Ép kiểu other về DigitalVideoDisc và thực hiện chuỗi so sánh mới: 
+        So sánh Title -> nếu bằng nhau thì so sánh Length (đảo ngược thứ tự để giảm dần) -> nếu vẫn bằng nhau thì so sánh Cost.
+
+        Nếu không phải DVD (ví dụ so DVD với Book): Dùng super.compareTo(other) để đẩy việc so sánh về lại cho quy tắc chung của class cha Media.

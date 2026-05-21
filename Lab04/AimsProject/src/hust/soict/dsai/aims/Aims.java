@@ -10,9 +10,8 @@ public class Aims {
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        initData(); // Nạp dữ liệu giả để test
+        initData(); //example data test
         boolean exit = false;
-
         while (!exit) {
             showMenu();
             int choice = getUserChoice(0, 3);
@@ -84,7 +83,7 @@ public class Aims {
         System.out.print("Please choose a number: 0-1-2-3-4-5: ");
     }
 
-    // --- LOGIC XỬ LÝ CÁC MENU ---
+    // -- menu ---
 
     public static void viewStoreMenu() {
         boolean back = false;
@@ -165,7 +164,6 @@ public class Aims {
         
         if (choice == 1) {
             System.out.println("Feature: Add media manually (To be implemented). For now, use code to add.");
-            // Bạn có thể mở rộng phần này để nhập id, title, type từ bàn phím
         } else if (choice == 2) {
             System.out.print("Enter title to remove: ");
             String title = scanner.nextLine();
@@ -225,8 +223,6 @@ public class Aims {
             }
         }
     }
-
-    // --- UTILS ---
     
     // Hàm hỗ trợ nhập số an toàn, tránh lỗi InputMismatchException
     private static int getUserChoice(int min, int max) {

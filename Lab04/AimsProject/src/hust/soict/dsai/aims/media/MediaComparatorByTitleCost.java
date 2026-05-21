@@ -9,7 +9,6 @@ public class MediaComparatorByTitleCost implements Comparator<Media> {
         if (titleDiff != 0) {
             return titleDiff;
         }
-        // Nếu Title giống nhau, sắp xếp theo Cost giảm dần (Decreasing)
         return Double.compare(m2.getCost(), m1.getCost());
     }
 }

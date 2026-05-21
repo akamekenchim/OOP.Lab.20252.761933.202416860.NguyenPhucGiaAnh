@@ -1,4 +1,4 @@
-package Lab04.OtherProjects.hust.soict.dsai.garbage;
+package hust.soict.dsai.garbage;
 
 import java.util.Random;
 

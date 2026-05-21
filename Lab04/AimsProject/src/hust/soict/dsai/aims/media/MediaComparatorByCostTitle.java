@@ -9,7 +9,6 @@ public class MediaComparatorByCostTitle implements Comparator<Media> {
         if (costDiff != 0) {
             return costDiff;
         }
-        // Nếu Cost giống nhau, sắp xếp theo Title (Alphabetical)
         return m1.getTitle().compareToIgnoreCase(m2.getTitle());
     }
 }

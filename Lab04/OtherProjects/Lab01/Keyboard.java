@@ -1,4 +1,5 @@
-package Lab04.OtherProjects.Lab01;
+package Lab01;
+
 import java.util.Scanner;
 
 public class Keyboard{
