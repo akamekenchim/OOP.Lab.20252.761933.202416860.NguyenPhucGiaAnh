@@ -1,0 +1,8 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "C:/DevTools_JavaFX/javafx-sdk-25.0.3/lib/*.jar"
+    ],
+    // ĐÃ ĐỔI: Sử dụng từ khóa chuẩn của Microsoft Extension Pack for Java
+    "java.javafx.sceneBuilderPath": "C:\\Users\\Admin\\AppData\\Local\\SceneBuilder\\SceneBuilder.exe"
+}

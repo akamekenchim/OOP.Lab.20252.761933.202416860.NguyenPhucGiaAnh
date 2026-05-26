@@ -1,0 +1,67 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "TestStoreScreen",
+            "request": "launch",
+            "mainClass": "Lab05.AimsProject.src.hust.soict.dsai.aims.screen.TestStoreScreen",
+            "projectName": "OOP_Lab_603ae31b"
+        },
+        {
+            "type": "java",
+            "name": "TestCartScreen",
+            "request": "launch",
+            "mainClass": "Lab05.AimsProject.src.hust.soict.dsai.aims.screen.TestCartScreen",
+            "projectName": "OOP_Lab_603ae31b"
+        },
+        {
+            "type": "java",
+            "name": "Aims",
+            "request": "launch",
+            "mainClass": "Lab05.AimsProject.src.hust.soict.dsai.aims.Aims",
+            "projectName": "OOP_Lab_603ae31b"
+        },
+        {
+            "type": "java",
+            "name": "AWTAccumulator",
+            "request": "launch",
+            "mainClass": "hust.soict.dsai.swing.AWTAccumulator",
+            "projectName": "OOP_Lab_603ae31b"
+        },
+        {
+            "type": "java",
+            "name": "Painter",
+            "request": "launch",
+            "mainClass": "hust.soict.dsai.javafx.Painter",
+            "projectName": "OOP_Lab_603ae31b"
+        },
+        {
+            "type": "java",
+            "name": "HelloDialog",
+            "request": "launch",
+            "mainClass": "Lab01.HelloDialog"
+        },
+        {
+            "type": "java",
+            "name": "Launcher",
+            "request": "launch",
+            "mainClass": "Lab05.GUIProject.Launcher",
+            "projectName": "OOP_Lab_603ae31b"
+        },
+        {
+            "type": "java",
+            "name": "TestJavaFX",
+            "request": "launch",
+            "mainClass": "Lab05.GUIProject.TestJavaFX",
+            "projectName": "OOP_Lab_603ae31b"
+        },
+        {
+            "type": "java",
+            "name": "Chạy ứng dụng JavaFX",
+            "request": "launch",
+            "mainClass": "${file}",
+            "vmArgs": "--module-path \"C:\\DevTools_JavaFX\\javafx-sdk-25.0.3\\lib\" --add-modules javafx.controls,javafx.fxml,javafx.media,javafx.swing,javafx.web"
+        }
+    ]
+}
