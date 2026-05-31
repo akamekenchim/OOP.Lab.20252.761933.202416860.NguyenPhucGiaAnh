@@ -3,6 +3,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "GarbageCreator",
+            "request": "launch",
+            "mainClass": "hust.soict.dsai.garbage.GarbageCreator",
+            "projectName": "OOP_Lab_603ae31b"
+        },
+        {
+            "type": "java",
             "name": "TestStoreScreen",
             "request": "launch",
             "mainClass": "Lab05.AimsProject.src.hust.soict.dsai.aims.screen.TestStoreScreen",

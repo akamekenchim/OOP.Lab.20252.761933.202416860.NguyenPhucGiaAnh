@@ -7,6 +7,7 @@ public abstract class Media implements Comparable<Media> {
     private String title;
     private String category;
     private float cost;
+    
     // Thêm 2 hằng số Comparator theo yêu cầu Phần 12
     public static final Comparator<Media> COMPARE_BY_TITLE_COST = new MediaComparatorByTitleCost();
     public static final Comparator<Media> COMPARE_BY_COST_TITLE = new MediaComparatorByCostTitle();
@@ -18,32 +19,33 @@ public abstract class Media implements Comparable<Media> {
         this.category = category;
         this.cost = cost;
     }
+    
     public Media(String title, String category, float cost) {
         super();
         this.title = title;
         this.category = category;
         this.cost = cost;
     }
+    
     public Media(String title) {
         super();
         this.title = title;
     }
+    
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null || !(obj instanceof Media)) {
-            return false;
-        }
+        if (this == obj) return true;
+        if (obj == null || !(obj instanceof Media)) return false;
+        
         Media other = (Media) obj;
 
         if (this.getTitle() == null) {
             return other.getTitle() == null;
         }
         
-        return this.getTitle().equals(other.getTitle());
+        return this.getTitle().equalsIgnoreCase(other.getTitle());
     }
+    
     public int getId() {
         return id;
     }
@@ -75,7 +77,6 @@ public abstract class Media implements Comparable<Media> {
     public void setCost(float cost) {
         this.cost = cost;
     }
-
 
     // Cập nhật toString() cho Phần 11
     @Override

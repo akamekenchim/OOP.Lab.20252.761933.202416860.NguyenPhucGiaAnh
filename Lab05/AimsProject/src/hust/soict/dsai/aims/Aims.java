@@ -1,7 +1,10 @@
 package Lab05.AimsProject.src.hust.soict.dsai.aims;
+
 import Lab05.AimsProject.src.hust.soict.dsai.aims.cart.Cart;
 import Lab05.AimsProject.src.hust.soict.dsai.aims.media.*;
 import Lab05.AimsProject.src.hust.soict.dsai.aims.store.Store;
+import Lab05.AimsProject.src.hust.soict.dsai.aims.exception.PlayerException;
+import javax.swing.JOptionPane; 
 import java.util.Scanner;
 
 public class Aims {
@@ -10,7 +13,7 @@ public class Aims {
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        initData(); //example data test
+        initData();
         boolean exit = false;
         while (!exit) {
             showMenu();
@@ -84,7 +87,6 @@ public class Aims {
     }
 
     // -- menu ---
-
     public static void viewStoreMenu() {
         boolean back = false;
         while (!back) {
@@ -92,7 +94,7 @@ public class Aims {
             storeMenu();
             int choice = getUserChoice(0, 4);
             switch (choice) {
-                case 1: // See details
+                case 1:
                     System.out.print("Enter media title: ");
                     String title = scanner.nextLine();
                     Media media = store.searchByTitle(title);
@@ -103,7 +105,7 @@ public class Aims {
                         System.out.println("Media not found!");
                     }
                     break;
-                case 2: // Add to cart
+                case 2:
                     System.out.print("Enter media title to add: ");
                     String addTitle = scanner.nextLine();
                     Media addMedia = store.searchByTitle(addTitle);
@@ -113,13 +115,20 @@ public class Aims {
                         System.out.println("Media not found in store!");
                     }
                     break;
-                case 3: // Play
+                case 3:
                     System.out.print("Enter media title to play: ");
                     String playTitle = scanner.nextLine();
                     Media playMedia = store.searchByTitle(playTitle);
                     if (playMedia != null) {
                         if (playMedia instanceof Playable) {
-                            ((Playable) playMedia).play();
+                            try {
+                                ((Playable) playMedia).play();
+                            } catch (PlayerException e) {
+                                System.err.println(e.toString());
+                                e.printStackTrace();
+                                // Bật Dialog GUI thông báo lỗi
+                                JOptionPane.showMessageDialog(null, e.getMessage(), "Illegal DVD Length", JOptionPane.ERROR_MESSAGE);
+                            }
                         } else {
                             System.out.println("This media cannot be played (Not a CD/DVD).");
                         }
@@ -127,10 +136,10 @@ public class Aims {
                         System.out.println("Media not found!");
                     }
                     break;
-                case 4: // See cart
+                case 4:
                     seeCurrentCartMenu();
                     break;
-                case 0: // Back
+                case 0:
                     back = true;
                     break;
             }
@@ -147,7 +156,14 @@ public class Aims {
             if (choice == 1) {
                 cart.addMedia(media);
             } else if (choice == 2 && media instanceof Playable) {
-                ((Playable) media).play();
+                try {
+                    ((Playable) media).play();
+                } catch (PlayerException e) {
+                    System.err.println(e.toString());
+                    e.printStackTrace();
+                    // Bật Dialog GUI thông báo lỗi
+                    JOptionPane.showMessageDialog(null, e.getMessage(), "Illegal DVD Length", JOptionPane.ERROR_MESSAGE);
+                }
             } else if (choice == 0) {
                 back = true;
             }
@@ -178,7 +194,7 @@ public class Aims {
             cartMenu();
             int choice = getUserChoice(0, 5);
             switch (choice) {
-                case 1: // Filter
+                case 1:
                     System.out.println("1. Filter by ID\n2. Filter by Title");
                     int filterChoice = getUserChoice(1, 2);
                     if (filterChoice == 1) {
@@ -189,33 +205,40 @@ public class Aims {
                         cart.findMedia(scanner.nextLine());
                     }
                     break;
-                case 2: // Sort
+                case 2:
                     System.out.println("1. Sort by Title\n2. Sort by Cost");
                     int sortChoice = getUserChoice(1, 2);
                     if (sortChoice == 1) cart.sortMediaByTitle();
                     else cart.sortMediaByCost();
                     break;
-                case 3: // Remove
+                case 3:
                     System.out.print("Enter title to remove from cart: ");
                     String rmTitle = scanner.nextLine();
                     Media rmMedia = cart.searchByTitle(rmTitle);
                     if (rmMedia != null) cart.removeMedia(rmMedia);
                     else System.out.println("Media not found in cart!");
                     break;
-                case 4: // Play
+                case 4:
                     System.out.print("Enter media title to play: ");
                     String playTitle = scanner.nextLine();
                     Media playMedia = cart.searchByTitle(playTitle);
                     if (playMedia != null && playMedia instanceof Playable) {
-                        ((Playable) playMedia).play();
+                        try {
+                            ((Playable) playMedia).play();
+                        } catch (PlayerException e) {
+                            System.err.println(e.toString());
+                            e.printStackTrace();
+                            // Bật Dialog GUI thông báo lỗi
+                            JOptionPane.showMessageDialog(null, e.getMessage(), "Illegal DVD Length", JOptionPane.ERROR_MESSAGE);
+                        }
                     } else {
                         System.out.println("Media not found or cannot be played!");
                     }
                     break;
-                case 5: // Place order
+                case 5:
                     System.out.println("An order has been created. Your cart is now empty!");
                     cart.empty();
-                    back = true; // Thường thì đặt hàng xong sẽ thoát khỏi giỏ hàng
+                    back = true; 
                     break;
                 case 0:
                     back = true;
@@ -224,7 +247,6 @@ public class Aims {
         }
     }
     
-    // Hàm hỗ trợ nhập số an toàn, tránh lỗi InputMismatchException
     private static int getUserChoice(int min, int max) {
         int choice = -1;
         while (choice < min || choice > max) {
@@ -240,16 +262,19 @@ public class Aims {
         return choice;
     }
 
-    // Nạp dữ liệu giả để Demo
     private static void initData() {
         DigitalVideoDisc dvd1 = new DigitalVideoDisc("Toaru Kagaku no Railgun", "Animation", "Misaka Mikoto", 87, 19.95f);
         DigitalVideoDisc dvd2 = new DigitalVideoDisc("Citrus", "Yuri", "Aihara Yuzu", 87, 24.95f);
         CompactDisc cd1 = new CompactDisc("infinite synthesis", "EDM", "fripSide", 20.0f);
         Book book1 = new Book(1, "Your Name", "Romance", 15.5f);
         
+        // Đĩa cứng mã hóa lỗi với Length = 0
+        DigitalVideoDisc errorDvd = new DigitalVideoDisc("Broken DVD", "Test", "Unknown", 0, 5.0f);
+        
         store.addMedia(dvd1);
         store.addMedia(dvd2);
         store.addMedia(cd1);
         store.addMedia(book1);
+        store.addMedia(errorDvd);
     }
 }

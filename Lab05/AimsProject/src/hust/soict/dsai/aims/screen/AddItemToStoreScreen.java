@@ -28,11 +28,10 @@ public abstract class AddItemToStoreScreen extends JFrame {
 
         add(centerPanel, BorderLayout.CENTER);
 
-        // Nút bấm xác nhận ở phía dưới
         JButton btnAdd = new JButton("Add " + itemType);
         btnAdd.addActionListener(e -> {
             JOptionPane.showMessageDialog(null, itemType + " '" + tfTitle.getText() + "' has been added to the store!");
-            dispose(); // Đóng cửa sổ sau khi add thành công
+            dispose(); 
         });
         
         JPanel bottomPanel = new JPanel();

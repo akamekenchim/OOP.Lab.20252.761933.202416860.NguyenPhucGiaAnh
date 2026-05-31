@@ -32,7 +32,7 @@ public class CartScreenController {
     @FXML private TextField tfFilter;
     @FXML private RadioButton radioBtnFilterId;
     @FXML private RadioButton radioBtnFilterTitle;
-    @FXML private Label lblTotalCost; // Quản lý chữ hiển thị tổng tiền
+    @FXML private Label lblTotalCost; // total money
 
     public CartScreenController(Cart cart) {
         super();
@@ -91,7 +91,6 @@ public class CartScreenController {
     void btnPlayPressed(ActionEvent event) {
         Media media = tblMedia.getSelectionModel().getSelectedItem();
         if (media != null) {
-            // Hiển thị một hộp thoại thông báo Pop-up trên giao diện màn hình
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setTitle("Playing Media");
             alert.setHeaderText(null);
@@ -127,7 +126,6 @@ public class CartScreenController {
         ObservableList<Media> observableMediaList = FXCollections.observableArrayList(this.cart.getItemsOrdered());
         tblMedia.setItems(observableMediaList);
         
-        // Tính tổng tiền giỏ hàng thực tế
         float total = 0;
         for (Media m : this.cart.getItemsOrdered()) {
             total += m.getCost();
